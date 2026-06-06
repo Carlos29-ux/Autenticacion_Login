@@ -7,7 +7,7 @@ Facultad de Ingeniería de Sistemas Computacionales
 
 ## 📋 Descripción
 
-Sistema de login seguro con registro de usuarios, autenticación de dos factores (2FA) y control de sesiones, desarrollado en PHP puro con PDO y Composer.
+Sistema de Login seguro con registro de usuarios, autenticación de dos factores (2FA) y control de sesiones, desarrollado en PHP puro con PDO y Composer.
 
 ---
 
@@ -80,7 +80,7 @@ EjemploLogin/
 ├── img/
 │   └── icons/
 │
-├── vendor/                    ← Composer (no se sube a Git)
+├── vendor/                    ← Composer 
 ├── Autenticacion.php
 ├── FormRegistro.php
 ├── login.php
@@ -96,7 +96,7 @@ EjemploLogin/
 
 ---
 
-## 🔐 Características de seguridad
+## 🔐 Características de Seguridad
 
 - **CSRF tokens** en todos los formularios
 - **Autenticación de dos factores (2FA)** con Google Authenticator
@@ -107,18 +107,17 @@ EjemploLogin/
 
 ---
 
-## 🧪 Flujo de autenticación
+## 🧪 Flujo de autenticación - Pruebas de Funcionamiento 
 
-```
-login.php → Panelprincipal.php → Autenticacion.php → formularios/PanelControl.php
-               (valida usuario)      (valida 2FA)          (panel principal)
-```
+### Pantalla de Login
+![Pantalla de Login](img/login-preview.png)
+
 
 ---
 
 ## 👤 Información de los Estudiantes
 
-| Campo      | Detalle               |
+| Campos     | Detalles              |
 |------------|-----------------------|
 | Nombres    | Carlos Concepción, Joseph Guerra|
 | Curso      | Desarrollo de Software VII      |
