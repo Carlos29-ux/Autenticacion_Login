@@ -107,10 +107,15 @@ EjemploLogin/
 
 ---
 
-## 🧪 Flujo de autenticación - Pruebas de Funcionamiento 
+## 🧪 Flujo de Autenticación - Pruebas de Funcionamiento 
 
 ### Pantalla de Login
 ![Pantalla de Login](img/login-preview.png)
+
+---
+### Verificación 2FA
+![2FA](img/2fa-preview.png)
+
 
 
 ---
