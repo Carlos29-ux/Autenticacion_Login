@@ -7,7 +7,7 @@ Facultad de Ingeniería de Sistemas Computacionales
 
 ## 📋 Descripción
 
-Sistema de inicio de sesión seguro con registro de usuarios, autenticación de dos factores (2FA) y control de sesiones, desarrollado en PHP con PDO y Composer.
+Sistema de Inicio de Sesión seguro con registro de usuarios, autenticación de dos factores (2FA) y control de sesiones, desarrollado en PHP con PDO y Composer.
 
 El Proyecto incorpora validación de entradas, protección CSRF, hash de contraseñas y acceso a la base de datos, además de una interfaz clara pensada para un entorno académico y de práctica.
 
