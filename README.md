@@ -116,7 +116,9 @@ EjemploLogin/
 ### Verificación 2FA
 ![2FA](img/2fa-preview.png)
 
-
+---
+### Panel Principal
+![Panel](img/panel-preview.png)
 
 ---
 
