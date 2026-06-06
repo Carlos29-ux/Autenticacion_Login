@@ -1,4 +1,4 @@
-# EjemploLogin — Sistema de Autenticación PHP
+## EjemploLogin — Sistema de Autenticación PHP
 
 **Universidad Tecnológica de Panamá**  
 Facultad de Ingeniería de Sistemas Computacionales
@@ -7,7 +7,9 @@ Facultad de Ingeniería de Sistemas Computacionales
 
 ## 📋 Descripción
 
-Sistema de Login seguro con registro de usuarios, autenticación de dos factores (2FA) y control de sesiones, desarrollado en PHP puro con PDO y Composer.
+Sistema de inicio de sesión seguro con registro de usuarios, autenticación de dos factores (2FA) y control de sesiones, desarrollado en PHP con PDO y Composer.
+
+El Proyecto incorpora validación de entradas, protección CSRF, hash de contraseñas y acceso a la base de datos, además de una interfaz clara pensada para un entorno académico y de práctica.
 
 ---
 
@@ -16,7 +18,7 @@ Sistema de Login seguro con registro de usuarios, autenticación de dos factores
 - 🐘 PHP 8.0 o superior
 - 📦 Composer
 - 🗄️ MySQL
-- 💻 WampServer
+- 💻 WampServer o Xampp
 - 📝 Visual Studio Code
 
 ---
@@ -39,60 +41,63 @@ composer install
 ```
 
 ### 4. Configurar la base de datos
-Importa el archivo SQL incluido y edita las credenciales en `clases/mysql.inc.php`.
+Importa el archivo SQL incluido (company_info) y edita las credenciales en `clases/mysql.inc.php`.
+
+Si vas a usar el segundo factor, instala Google Authenticator en tu celular y verifica que el teléfono y el servidor tengan la misma zona horaria. Si la hora no coincide, los códigos de 6 dígitos pueden fallar aunque el secreto sea correcto.
 
 ### 5. Ejecutar el proyecto
 Abre tu navegador y accede a:
 ```
 http://localhost/EjemploLogin/login.php
 ```
-
 ---
 
 ## 📁 Estructura de archivos
 
-```
-EjemploLogin/
-│
-├── clases/                    ← Lógica y clases PHP
-│   ├── mysql.inc.php
-│   ├── GestorHash.php
-│   ├── objLoginAdmin.php
-│   ├── Registrese.php
-│   └── SanitizarEntrada.php
-│
-├── comunes/                   ← Fragmentos reutilizables
-│   ├── Cabecera4.php
-│   ├── footer.php
-│   ├── bloque_Seguridad.php
-│   └── loginfunciones.php
-│
-├── formularios/               ← Vistas del panel
-│   ├── PanelControl.php
-│   └── TableroMenu.php
-│
-├── Estilos/                   ← Hojas de estilo CSS
-│   ├── Login.css
-│   ├── Autenticacion.css
-│   ├── Formulario.css
-│   └── Dashboard.css
-│
-├── img/
-│   └── icons/
-│
-├── vendor/                    ← Composer 
-├── Autenticacion.php
-├── FormRegistro.php
-├── login.php
-├── login_form.php
-├── Panelprincipal.php
-├── ProcesarRegistro.php
-├── VerificarDuplicado.php
-├── salir.php
-├── composer.json
-├── composer.lock
-└── README.md
-```
+La Estructura está organizada por responsabilidad para que sea fácil ubicar cada parte del sistema.
+
+### Carpetas principales
+
+- `clases/`: contiene la lógica de negocio, conexión a BD y validaciones.
+- `comunes/`: guarda funciones y fragmentos reutilizables.
+- `formularios/`: contiene vistas y componentes del panel principal.
+- `Estilos/`: agrupa todos los archivos CSS del proyecto.
+- `img/icons/`: almacena iconos e imágenes usadas en la interfaz.
+- `vendor/`: dependencias instaladas por Composer.
+
+### Archivos del sistema
+
+- `login.php`: punto de entrada al inicio de sesión y generador del token CSRF.
+- `login_form.php`: formulario visual del login.
+- `Autenticacion.php`: validación del código 2FA con Google Authenticator.
+- `FormRegistro.php`: formulario de registro de usuarios.
+- `ProcesarRegistro.php`: procesa el registro, guarda el secreto 2FA y genera el QR.
+- `Panelprincipal.php`: panel principal después de autenticarse.
+- `VerificarDuplicado.php`: verifica por AJAX si un correo o usuario ya existe.
+- `salir.php`: cierra la sesión del usuario.
+- `composer.json`: define la dependencia principal del proyecto.
+- `composer.lock`: bloquea las versiones instaladas.
+- `README.md`: documentación general del sistema.
+
+### Detalle de la carpeta `clases/`
+
+- `mysql.inc.php`: crea la conexión PDO y centraliza el acceso a MySQL.
+- `GestorHash.php`: genera, valida y actualiza hashes de contraseña.
+- `objLoginAdmin.php`: autentica usuarios y registra los accesos.
+- `Registrese.php`: administra el registro de nuevos usuarios.
+- `SanitizarEntrada.php`: limpia y normaliza datos de entrada.
+
+### Detalle de la carpeta `comunes/`
+
+- `loginfunciones.php`: contiene funciones comunes como redirección y mensajes.
+- `Cabecera4.php`: cabecera HTML reutilizable.
+- `footer.php`: pie de página reutilizable.
+- `bloque_Seguridad.php`: bloque de protección para vistas privadas.
+
+### Detalle de la carpeta `formularios/`
+
+- `PanelControl.php`: vista del área protegida.
+- `TableroMenu.php`: menú o navegación del panel.
 
 ---
 
@@ -110,14 +115,23 @@ EjemploLogin/
 ## 🧪 Flujo de Autenticación - Pruebas de Funcionamiento 
 
 ### Pantalla de Login
+
+Formulario inicial donde el usuario escribe su correo y contraseña para comenzar el acceso.
+
 ![Pantalla de Login](img/login-preview.png)
 
 ---
 ### Verificación 2FA
+
+Pantalla donde se ingresa el código temporal de Google Authenticator para confirmar la identidad.
+
 ![2FA](img/2fa-preview.png)
 
 ---
 ### Panel Principal
+
+Vista protegida que aparece solo cuando el usuario completó correctamente el login y el segundo factor.
+
 ![Panel](img/panel-preview.png)
 
 ---
