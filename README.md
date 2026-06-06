@@ -43,7 +43,9 @@ composer install
 ### 4. Configurar la base de datos
 Importa el archivo SQL incluido (company_info) y edita las credenciales en `clases/mysql.inc.php`.
 
-Si vas a usar el segundo factor, instala Google Authenticator en tu celular y verifica que el teléfono y el servidor tengan la misma zona horaria. Si la hora no coincide, los códigos de 6 dígitos pueden fallar aunque el secreto sea correcto.
+Si vas a usar el segundo factor, instala la aplicación Google Authenticator en tu celular. Esa app se usa para escanear el código QR que genera el sistema durante el registro y para crear los códigos temporales de 6 dígitos.
+
+Además, verifica que el teléfono y el servidor tengan la misma zona horaria. Si la hora no coincide, los códigos pueden fallar aunque el secreto sea correcto.
 
 ### 5. Ejecutar el proyecto
 Abre tu navegador y accede a:
@@ -123,7 +125,7 @@ Formulario inicial donde el usuario escribe su correo y contraseña para comenza
 ---
 ### Verificación 2FA
 
-Pantalla donde se ingresa el código temporal de Google Authenticator para confirmar la identidad.
+Pantalla donde se ingresa el código temporal de Google Authenticator para confirmar la identidad. Ese código se genera en el celular después de escanear el QR creado durante el registro.
 
 ![2FA](img/2fa-preview.png)
 
