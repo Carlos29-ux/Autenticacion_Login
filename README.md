@@ -13,7 +13,7 @@ El Proyecto incorpora validación de entradas, protección CSRF, hash de contras
 
 ---
 
-## ⚙️ Tecnologías utilizadas
+## ⚙️ Tecnologías Utilizadas
 
 - 🐘 PHP 8.0 o superior
 - 📦 Composer
@@ -25,42 +25,47 @@ El Proyecto incorpora validación de entradas, protección CSRF, hash de contras
 
 ## 🔧 Instalación
 
-### 1. Clonar el repositorio
+### 1. Clonar el Repositorio
 ```bash
-git clone https://github.com/tu-usuario/EjemploLogin.git
+git clone https://github.com/Carlos29-ux/Autenticacion_Login.git
 ```
 
-### 2. Entrar a la carpeta
+### 2. Entrar a la Carpeta
 ```bash
-cd EjemploLogin
+cd Autenticacion_Login
 ```
 
-### 3. Instalar dependencias
+### 3. Instalar la dependencia del 2FA
+```bash
+composer require sonata-project/google-authenticator
+```
+
+### 4. Instalar Dependencias del Proyecto
 ```bash
 composer install
 ```
 
-### 4. Configurar la base de datos
+### 5. Configurar la Base de Datos
 Importa el archivo SQL incluido (company_info) y edita las credenciales en `clases/mysql.inc.php`.
 
 
-### 5. Dato Importante:
+### 6. Dato Importante:
 Si vas a usar el segundo factor, instala la aplicación Google Authenticator en tu celular. Esa app se usa para escanear el código QR que genera el sistema durante el registro y para crear los códigos temporales de 6 dígitos.
 
 Además, verifica que el teléfono y el servidor tengan la misma zona horaria. Si la hora no coincide, los códigos pueden fallar aunque el secreto sea correcto.
 
-### 6. Ejecutar el proyecto
+### 7. Ejecutar el Proyecto
 Abre tu navegador y accede a:
 ```
 http://localhost/EjemploLogin/login.php
 ```
 ---
 
-## 📁 Estructura de archivos
+## 📁 Estructura de Archivos
 
 La Estructura está organizada por responsabilidad para que sea fácil ubicar cada parte del sistema.
 
-### Carpetas principales
+### Carpetas Principales
 
 - `clases/`: contiene la lógica de negocio, conexión a BD y validaciones.
 - `comunes/`: guarda funciones y fragmentos reutilizables.
@@ -69,7 +74,7 @@ La Estructura está organizada por responsabilidad para que sea fácil ubicar ca
 - `img/icons/`: almacena iconos e imágenes usadas en la interfaz.
 - `vendor/`: dependencias instaladas por Composer.
 
-### Archivos del sistema
+### Archivos del Sistema
 
 - `login.php`: punto de entrada al inicio de sesión y generador del token CSRF.
 - `login_form.php`: formulario visual del login.
@@ -83,7 +88,7 @@ La Estructura está organizada por responsabilidad para que sea fácil ubicar ca
 - `composer.lock`: bloquea las versiones instaladas.
 - `README.md`: documentación general del sistema.
 
-### Detalle de la carpeta `clases/`
+### Detalle de la Carpeta `clases/`
 
 - `mysql.inc.php`: crea la conexión PDO y centraliza el acceso a MySQL.
 - `GestorHash.php`: genera, valida y actualiza hashes de contraseña.
@@ -91,14 +96,14 @@ La Estructura está organizada por responsabilidad para que sea fácil ubicar ca
 - `Registrese.php`: administra el registro de nuevos usuarios.
 - `SanitizarEntrada.php`: limpia y normaliza datos de entrada.
 
-### Detalle de la carpeta `comunes/`
+### Detalle de la Carpeta `comunes/`
 
 - `loginfunciones.php`: contiene funciones comunes como redirección y mensajes.
 - `Cabecera4.php`: cabecera HTML reutilizable.
 - `footer.php`: pie de página reutilizable.
 - `bloque_Seguridad.php`: bloque de protección para vistas privadas.
 
-### Detalle de la carpeta `formularios/`
+### Detalle de la Carpeta `formularios/`
 
 - `PanelControl.php`: vista del área protegida.
 - `TableroMenu.php`: menú o navegación del panel.
